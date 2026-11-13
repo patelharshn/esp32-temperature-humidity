@@ -1,0 +1,61 @@
+Hello friends, and welcome back to my channel!
+
+In today's video, I will show you a complete Smart Door Lock and Gate Barrier security system built with the ESP32.
+
+With this project, you can unlock your door using three different methods: an RFID card, a secure 4-digit keypad PIN, or directly from a custom mobile app on your smartphone.
+
+And the best part is: it works completely offline. You do not need any internet connection or Wi-Fi router.
+
+Let us look at the hardware components first.
+
+Here are the parts used in this project:
+
+Number one: The ESP32 Development Board. This is the brain of the system. It handles all the sensors, displays, and hosts its own Wi-Fi hotspot.
+
+Number two: The RC522 RFID Module, used for quick, contactless card scanning.
+
+Number three: A 4 by 4 matrix keypad, used to enter and change security PIN numbers.
+
+Number four: A 0.96-inch OLED display, which shows welcome messages, access status, and menus.
+
+Number five: A Servo Motor, which acts as our door latch or gate barrier arm.
+
+And number six: A buzzer, which gives audible beeps for key presses, access granted, or access denied.
+
+Now, let us test the physical access control.
+
+First, let us use the keypad. I will enter the default PIN: one, two, three, four... and press the hash key.
+
+The OLED instantly shows "ACCESS GRANTED", the buzzer beeps, and the servo motor rotates to 90 degrees to open the gate.
+
+Notice that after exactly five seconds, the gate automatically closes by itself to keep the area secure.
+
+Next, let us test the RFID reader.
+
+If I tap an unauthorized card, the buzzer sounds a warning beep, and the screen says "Invalid RFID Card".
+
+Now, when I tap an authorized card, the gate opens immediately. It is fast and very reliable.
+
+Now comes the coolest feature: our Flutter mobile app.
+
+The ESP32 creates its own private Wi-Fi hotspot called "ESP32_DOOR_LOCK". All you have to do is connect your phone to this hotspot. No internet is required.
+
+Once connected, open the app.
+
+On the main dashboard, you can see the live connection status and whether the gate is locked or unlocked. With just one tap on the "Open Gate" button, the barrier opens instantly from your phone.
+
+Inside the RFID management tab, the administrator can view all registered cards, give them custom names like "Front Door Card" or "Office Key", and even enroll brand-new cards wirelessly.
+
+The app also includes a live audit log. Every single access attempt, keypad entry, and gate movement is recorded with the exact timestamp, so you always know who opened the door and when.
+
+What happens if there is a power cut?
+
+All your passwords and registered RFID cards are stored permanently in the ESP32's non-volatile NVS flash memory. Even when you restart the power, none of your data is lost.
+
+You can also change passwords anytime using the keypad admin menu, or securely through the mobile app using an admin login token.
+
+This project is a perfect DIY solution for home security, private rooms, office doors, or parking barriers.
+
+If you found this project helpful, please give this video a thumbs up. Leave your questions in the comments below, and do not forget to subscribe to the channel for more exciting IoT and electronics projects.
+
+Thank you so much for watching, and see you in the next video!
