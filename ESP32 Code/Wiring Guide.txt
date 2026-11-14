@@ -1,0 +1,41 @@
+ESP32 DEVKIT V1 WIRING GUIDE - SMART GATE BARRIER SYSTEM
+========================================================
+
+1. OLED DISPLAY (SSD1306 I2C)
+- VCC  -> ESP32 3.3V (Do not use 5V if display is 3.3V-only)
+- GND  -> ESP32 GND
+- SDA  -> ESP32 GPIO 21
+- SCL  -> ESP32 GPIO 22
+
+2. RFID READER (MFRC522 SPI) [Strictly 3.3V]
+- 3.3V     -> ESP32 3.3V
+- GND      -> ESP32 GND
+- RST      -> ESP32 GPIO 2 (Unplug temporarily if code upload fails)
+- SDA (SS) -> ESP32 GPIO 5
+- SCK      -> ESP32 GPIO 26
+- MISO     -> ESP32 GPIO 33
+- MOSI     -> ESP32 GPIO 4
+- IRQ      -> Not Connected
+
+3. 4x4 MATRIX KEYPAD (Pins 1 to 8, Left to Right)
+- Pin 1 (Row 1: 1,2,3,A) -> ESP32 GPIO 13
+- Pin 2 (Row 2: 4,5,6,B) -> ESP32 GPIO 14
+- Pin 3 (Row 3: 7,8,9,C) -> ESP32 GPIO 16
+- Pin 4 (Row 4: *,0,#,D) -> ESP32 GPIO 17
+- Pin 5 (Col 1: 1,4,7,*) -> ESP32 GPIO 18
+- Pin 6 (Col 2: 2,5,8,0) -> ESP32 GPIO 19
+- Pin 7 (Col 3: 3,6,9,#) -> ESP32 GPIO 23
+- Pin 8 (Col 4: A,B,C,D) -> ESP32 GPIO 25
+
+4. SERVO MOTOR (GATE BARRIER)
+- Signal (Orange/Yellow) -> ESP32 GPIO 32
+- VCC (Red)              -> External 5V Power Supply (+)
+- GND (Brown/Black)      -> External 5V Power Supply (-) AND ESP32 GND (Common Ground)
+
+5. ACTIVE BUZZER
+- Positive (+) -> ESP32 GPIO 27
+- Negative (-) -> ESP32 GND
+
+IMPORTANT NOTES:
+- Common Ground: Connect the External 5V Power Supply GND directly to an ESP32 GND pin so the servo PWM signal operates properly.
+- Code Flashing: GPIO 2 is a boot strapping pin. If Arduino IDE fails to upload, disconnect the RFID RST wire from GPIO 2, upload the code, and reconnect it.
